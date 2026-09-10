@@ -1,0 +1,33 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: shrone-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./.env
+    volumes:
+      - ./documents:/app/documents:ro
+      - ./processed_output:/app/processed_output
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend_2
+      dockerfile: Dockerfile
+      args:
+        - CURRENT_IP=34.229.223.135  # ← Updated to match config.json
+    container_name: shrone-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_TELEMETRY_DISABLED=1
+      - BACKEND_URL=http://34.229.223.135:8000  # ← Updated to match config.json
+      - NEXT_PUBLIC_BACKEND_URL=http://34.229.223.135:8000  # ← Updated to match config.json
+      - HOSTNAME=0.0.0.0
+      - NODE_ENV=development
+    depends_on:
+      - backend
+    restart: unless-stopped

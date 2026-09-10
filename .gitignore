@@ -1,0 +1,225 @@
+# =============================================================================
+# Shrone Agent - Git ignore rules
+# Keeps credentials, local config, build artifacts, and large data out of git.
+# =============================================================================
+
+# --- Environment & secrets (NEVER commit these) ---
+.env
+.env.*
+!.env.example
+!.env*.example
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+.env.staging
+.env.staging.local
+
+# Secret / credential files
+secrets/
+.secrets/
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cert
+*.cer
+*.p7b
+*.p7s
+*.spc
+credentials.json
+credentials*.json
+api-keys.json
+service-account*.json
+*.secrets
+.aws/
+.gcp/
+
+# Supabase local CLI
+.supabase/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/python*/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# --- Node / Next.js (frontend_2) ---
+node_modules/
+frontend_2/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+.next/
+frontend_2/.next/
+out/
+frontend_2/out/
+.swc/
+frontend_2/.swc/
+.turbo/
+.vercel/
+
+frontend_2/build/
+frontend_2/dist/
+build/
+dist/
+
+# --- IDE & OS ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.AppleDouble
+.LSOverride
+__MACOSX/
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# --- Logs & temp files ---
+*.log
+logs/
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
+*.orig
+*.rej
+.#*
+
+# --- Database files ---
+*.db
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
+*.dev.db
+dev.sqlite
+folders.db
+
+# --- Project data & outputs (may contain sensitive document content) ---
+documents/
+processed_output/
+preprocessed_output/
+
+# --- Large / binary data ---
+*.pdf
+*.docx
+*.doc
+*.ppt
+*.pptx
+*.xls
+*.xlsx
+*.csv
+*.tsv
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.bz2
+*.xz
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.parquet
+*.bin
+*.model
+*.weights
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.msgpack
+
+# Large media (uploaded docs / recordings — not repo assets)
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+*.mp3
+*.wav
+*.flac
+*.aac
+*.ogg
+*.wma
+
+# --- ML / model cache ---
+.cache/
+model_cache/
+transformers_cache/
+
+# --- Testing & coverage ---
+test-results/
+playwright-report/
+test-results.xml
+coverage.xml
+coverage/
+.nyc_output
+.jest/
+frontend_2/coverage/
+
+# --- Misc dev artifacts ---
+scratch/
+temp/
+playground/
+experiments/
+storybook-static/
+*.tsbuildinfo
+.eslintcache
+
+# PWA generated files
+**/public/sw.js
+**/public/workbox-*.js
+**/public/worker-*.js
+**/public/sw.js.map
+**/public/workbox-*.js.map
+**/public/worker-*.js.map
+
+# Local-only notes (optional)
+frontend_2.md
+WARP.md
